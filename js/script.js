@@ -5,11 +5,11 @@ let pokemonList = [
     { name: 'Haunter', height: 1.6, type: ['ghost', 'poison'] }
 ];
 
-//Write to index.html page to verify information added to array.
 //Write name and height to index.html
 for (let i = 0; i < pokemonList.length; i++) {
     document.write(`${pokemonList[i].name}: <br> 
     Height: ${pokemonList[i].height} meters`);
 
+    // Print "Wow, that's big!" next to any pokemon with a height greater than 1.2 meters
     pokemonList[i].height > 1.2 ? document.write(' - Wow, that\'s big\!<br><br>') : document.write('<br><br>');
 }
