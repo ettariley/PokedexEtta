@@ -6,7 +6,10 @@ let pokemonList = [
 ];
 
 //Write to index.html page to verify information added to array.
+//Write name and height to index.html
 for (let i = 0; i < pokemonList.length; i++) {
     document.write(`${pokemonList[i].name}: <br> 
-    Height: ${pokemonList[i].height} meters <br>
+    Height: ${pokemonList[i].height} meters`);
+
+    pokemonList[i].height > 1.2 ? document.write(' - Wow, that\'s big\!<br><br>') : document.write('<br><br>');
 }
