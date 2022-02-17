@@ -1,7 +1,3 @@
-//Write name and height to index.html
-for (let i = 0; i < pokemonList.length; i++) {
-    document.write(`${pokemonList[i].name}: <br> 
-    Height: ${pokemonList[i].height} meters`);
 //Create IIFE pokemonRepository to house pokemonList and necessary functions
 let pokemonRepository = (function () {
     //Create array that includes three pokemon and required details
@@ -29,7 +25,13 @@ let pokemonRepository = (function () {
 
 }) ();
 
+//List all the name and height of pokemon from pokemonList array
+function listAllPokemon(pokemon) {
+    document.write(pokemon.name + ' (Height: ' + pokemon.height + ' meters)');
 
     // Print "Wow, that's big!" next to any pokemon with a height greater than 1.2 meters
-    pokemonList[i].height > 1.2 ? document.write(' - Wow, that\'s big\!<br><br>') : document.write('<br><br>');
+    pokemon.height > 1.2 ? document.write(' - Wow, that\'s big!<br><br>') : document.write('<br><br>');
 }
+
+//Loop through each item in array to print details
+pokemonRepository.getAll().forEach(listAllPokemon);
