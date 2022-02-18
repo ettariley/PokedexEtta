@@ -16,8 +16,7 @@ body {
     font-weight: var(--primary-font-weight);
     font-size: 16px;
     line-height: 1.2;
-    background-color: lightgray;
-    text-align: center;
+    text-align: left;
 }
 
 /* Heading Stylings */
@@ -25,5 +24,32 @@ h1 {
     font-size: 24px;
     font-weight: var(--primary-font-bold);
     padding-bottom: 10px;
+}
+
+/* Pokemon List Stylings */
+
+.pokemon-button {
+    background-color: lightgray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    font-family: var(--primary-font);
+    font-weight: var(--primary-font-weight);
+    font-size: 16px;
+    text-align: left;
+}
+
+.pokemon-list {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+.pokemon-list-div {
+    width: 90vw;
+    margin: auto;
 }
 
