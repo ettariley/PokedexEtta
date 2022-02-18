@@ -17,21 +17,43 @@ let pokemonRepository = (function () {
         return pokemonList;
     }
 
+    //Create a button list name of pokemon from pokemonList array
+    function addListItem(pokemon) {
+        //Assign a variable to the <ul> element in index.html
+        let pokemonListDisplay = document.querySelector('.pokemon-list');
+
+        //Create list item element
+        let listItem = document.createElement('li');
+        //Create button element
+        let button = document.createElement('button');
+        //Assign button's inner text to pokemon's name
+        button.innerText = pokemon.name;
+        //Add pokemon-button class to the button
+        button.classList.add('pokemon-button');
+        //Append button to list item
+        listItem.appendChild(button);
+        //Append list item to list
+        pokemonListDisplay.appendChild(listItem);
+        //Click listener for button that calls showDetails function
+        button.addEventListener('click', function() {
+            showDetails(pokemon);
+        });
+    }
+
+    //Console log pokemon name
+    function showDetails(pokemon) {
+        console.log(pokemon.name);
+    }
+
     //IIFE function returns
     return {
         add: add,
-        getAll: getAll
+        getAll: getAll,
+        addListItem: addListItem,
+        showDetails: showDetails
     };
 
 }) ();
 
-//List all the name and height of pokemon from pokemonList array
-function listAllPokemon(pokemon) {
-    document.write(pokemon.name + ' (Height: ' + pokemon.height + ' meters)');
-
-    // Print "Wow, that's big!" next to any pokemon with a height greater than 1.2 meters
-    pokemon.height > 1.2 ? document.write(' - Wow, that\'s big!<br><br>') : document.write('<br><br>');
-}
-
-//Loop through each item in array to print details
-pokemonRepository.getAll().forEach(listAllPokemon);
+//Loop through each item in array to display details
+pokemonRepository.getAll().forEach(pokemonRepository.addListItem);
