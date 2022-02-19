@@ -31,7 +31,19 @@ h1 {
     padding-bottom: 10px;
 }
 
-/* Pokemon List Stylings */
+/* Loading Message Stylings */
+.loading-message {
+    color: var(--primary-color-red);
+    font-weight: var(--primary-font-bold);
+    font-size: 24px;
+    margin: auto;
+    width: 90vw;
+    display: block;
+}
+
+.loading-message-hidden {
+    display: none;
+}
 
 /* Pokemon List Stylings */
 .pokemon-button {
