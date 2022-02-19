@@ -3,6 +3,11 @@
     --primary-font: 'Rajdhani', sans-serif;
     --primary-font-weight: 600;
     --primary-font-bold: 700;
+    --primary-color-red: #FF0000;
+    --secondary-color-dark-red: #CC0000;
+    --primary-color-blue: #3B4CCA;
+    --primary-color-yellow: #FFDE00;
+    --secondary-color-dark-yellow: #B3A125;
 }
 
 /* Universal Stylings */
@@ -28,13 +33,15 @@ h1 {
 
 /* Pokemon List Stylings */
 
+/* Pokemon List Stylings */
 .pokemon-button {
-    background-color: lightgray;
+    background-color: var(--primary-color-blue);
     margin-top: 10px;
     margin-bottom: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     width: 100%;
+    color: white;
     font-family: var(--primary-font);
     font-weight: var(--primary-font-weight);
     font-size: 16px;
