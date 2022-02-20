@@ -41,7 +41,36 @@ let pokemonRepository = (function () {
     function showDetails(pokemon) {
         //Asyncronous call to load pokemon details and log to console
         loadDetails(pokemon).then(function (){
-            console.log(pokemon);
+            let modalContainer = document.querySelector('#modal-container');
+
+            //Clear existing content
+            modalContainer.innerHTML = '';
+    
+            let modal = document.createElement('div');
+            modal.classList.add('modal');
+    
+            //Add new modal content
+            let closeButtonElement = document.createElement('button');
+            closeButtonElement.classList.add('modal-close');
+            closeButtonElement.innerText = 'X';
+            closeButtonElement.addEventListener('click', hideModal);
+    
+            let titleElement = document.createElement('h1');
+            titleElement.innerText = pokemon.name;
+    
+            let contentElement = document.createElement('p');
+            contentElement.innerText = 'Height: ' + pokemon.height;
+    
+            let imageElement = document.createElement('img');
+            imageElement.src = pokemon.imageUrl;
+    
+            modal.appendChild(closeButtonElement);
+            modal.appendChild(titleElement);
+            modal.appendChild(contentElement);
+            modal.appendChild(imageElement);
+            modalContainer.appendChild(modal);
+    
+            modalContainer.classList.add('is-visible');
         });
     }
 
@@ -71,8 +100,6 @@ let pokemonRepository = (function () {
 
     //Load details of pokemon (called on button click)
     function loadDetails(item) {
-        //Display loading message
-        showLoadingMessage();
         //Set URL for details as variable
         let url = item.detailsUrl;
         //Fetch URL & parse JSON data retrieved
@@ -83,8 +110,6 @@ let pokemonRepository = (function () {
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
             item.types = details.types;
-            //Remove loading message
-            hideLoadingMessage();
         //Console log if there's an error
         }).catch(function (e) {
             console.error(e);
@@ -92,9 +117,16 @@ let pokemonRepository = (function () {
     }
 
     //Display loading message div in index.html
-    function showLoadingMessage() {
+    async function showLoadingMessage() {
+        await pauseThread(500);
         let loadingMessage = document.querySelector('.loading-message');
         loadingMessage.classList.toggle('loading-message-hidden');
+    }
+
+    async function pauseThread(ms) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => resolve(), ms)
+        })
     }
 
     //Remove loading message div in index.html
@@ -103,15 +135,39 @@ let pokemonRepository = (function () {
         loadingMessage.classList.toggle('loading-message-hidden');
     }
 
+    function hideModal() {
+        let modalContainer = document.querySelector('#modal-container');
+        modalContainer.classList.remove('is-visible');
+    }
+
+    window.addEventListener('keydown', (e) => {
+        let modalContainer = document.querySelector('#modal-container');
+        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+          hideModal();  
+        }
+      });
+
+    let modalContainer = document.querySelector('#modal-container');
+    modalContainer.addEventListener('click', (e) => {
+    // Since this is also triggered when clicking INSIDE the modal
+    // We only want to close if the user clicks directly on the overlay
+    let target = e.target;
+    if (target === modalContainer) {
+        hideModal();
+    }
+    });
+
     //IIFE function returns
     return {
         add: add,
         getAll: getAll,
         addListItem: addListItem,
+        showDetails: showDetails,
         loadList: loadList,
         loadDetails: loadDetails,
         showLoadingMessage: showLoadingMessage,
-        hideLoadingMessage, hideLoadingMessage
+        hideLoadingMessage, hideLoadingMessage,
+        hideModal: hideModal,
     };
 
 }) ();
