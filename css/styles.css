@@ -1,6 +1,11 @@
 }
 
+/* Background stylings */
 body {
+    background-color: lightgray;
 }
 
+/* Match list item box to background color */
+.list-group-item {
+    background-color: lightgray;
 }
