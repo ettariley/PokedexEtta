@@ -41,37 +41,16 @@ let pokemonRepository = (function () {
     //Console log details of pokemon
     function showDetails(pokemon) {
         //Asyncronous call to load pokemon details and log to console
-        loadDetails(pokemon).then(function (){
-            let modalContainer = document.querySelector('#modal-container');
+        loadDetails(pokemon).then(function (){            
+            //Add name as title of modal
+            let modalHeader = $('.modal-header');
+            let pokemonNameTitle = $('<h5 id="pokemon-name">' + pokemon.name + '</h5>');
+            modalHeader.prepend(pokemonNameTitle);
 
-            //Clear existing content
-            modalContainer.innerHTML = '';
-    
-            let modal = document.createElement('div');
-            modal.classList.add('modal');
-    
-            //Add new modal content
-            let closeButtonElement = document.createElement('button');
-            closeButtonElement.classList.add('modal-close');
-            closeButtonElement.innerText = 'X';
-            closeButtonElement.addEventListener('click', hideModal);
-    
-            let titleElement = document.createElement('h1');
-            titleElement.innerText = pokemon.name;
-    
-            let contentElement = document.createElement('p');
-            contentElement.innerText = 'Height: ' + pokemon.height;
-    
-            let imageElement = document.createElement('img');
-            imageElement.src = pokemon.imageUrl;
-    
-            modal.appendChild(closeButtonElement);
-            modal.appendChild(titleElement);
-            modal.appendChild(contentElement);
-            modal.appendChild(imageElement);
-            modalContainer.appendChild(modal);
-    
-            modalContainer.classList.add('is-visible');
+            //Add height and image to body of modal
+            let displayHeight = $('<p id="pokemon-height">Height: ' + pokemon.height + '</p>');
+            let displayImage = $('<img src="' + pokemon.imageUrl +'" id="pokemon-image" alt="Image of ' + pokemon.name + '">');
+            $('.modal-body').append(displayHeight).append(displayImage);
         });
     }
 
