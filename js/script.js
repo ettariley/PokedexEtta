@@ -18,23 +18,24 @@ let pokemonRepository = (function () {
     //Create a button list name of pokemon from pokemonList array
     function addListItem(pokemon) {
         //Assign a variable to the <ul> element in index.html
-        let pokemonListDisplay = document.querySelector('.pokemon-list');
+        let pokemonListDisplay = $('.pokemon-list');
         //Create list item element
-        let listItem = document.createElement('li');
-        //Create button element
-        let button = document.createElement('button');
-        //Assign button's inner text to pokemon's name
-        button.innerText = pokemon.name;
-        //Add pokemon-button class to the button
-        button.classList.add('pokemon-button');
+        let listItem = $('<li class="list-group-item"></li>');
+        //Create button element with necessary classes & Pokemon name as text inside
+        let button = $('<button class="pokemon-button btn btn-primary btn-block btn-lg text-left" data-toggle="modal" data-target="#pokemon-modal">' + pokemon.name + '</button>');
         //Append button to list item
-        listItem.appendChild(button);
+        listItem.append(button);
         //Append list item to list
-        pokemonListDisplay.appendChild(listItem);
+        pokemonListDisplay.append(listItem);
         //Click listener for button that calls showDetails function
-        button.addEventListener('click', function() {
+        button.on('click', function() {
+            //Remove any previous pokemon modal information
+            $('#pokemon-name').remove();
+            $('#pokemon-height').remove();
+            $('#pokemon-image').remove();
+            //Load modal information
             showDetails(pokemon);
-        });
+        })
     }
 
     //Console log details of pokemon
