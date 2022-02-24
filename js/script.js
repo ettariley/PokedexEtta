@@ -56,8 +56,6 @@ let pokemonRepository = (function () {
 
     //Load list of Pokemon from API
     function loadList() {
-        //Display loading message
-        showLoadingMessage();
         //Fetch api URL
         return fetch(apiUrl).then(function (response) {
             return response.json(); //Parse API JSON data
@@ -69,8 +67,6 @@ let pokemonRepository = (function () {
                     detailsUrl: item.url
                 };
                 add(pokemon);
-                //Remove loading message since data has been loaded
-                hideLoadingMessage();
             });
         //Console log if there's an error
         }).catch(function (e) {
@@ -96,47 +92,6 @@ let pokemonRepository = (function () {
         });
     }
 
-    //Display loading message div in index.html
-    async function showLoadingMessage() {
-        await pauseThread(500);
-        let loadingMessage = document.querySelector('.loading-message');
-        loadingMessage.classList.toggle('loading-message-hidden');
-    }
-
-    async function pauseThread(ms) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => resolve(), ms)
-        })
-    }
-
-    //Remove loading message div in index.html
-    function hideLoadingMessage() {
-        let loadingMessage = document.querySelector('.loading-message');
-        loadingMessage.classList.toggle('loading-message-hidden');
-    }
-
-    function hideModal() {
-        let modalContainer = document.querySelector('#modal-container');
-        modalContainer.classList.remove('is-visible');
-    }
-
-    window.addEventListener('keydown', (e) => {
-        let modalContainer = document.querySelector('#modal-container');
-        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-          hideModal();  
-        }
-      });
-
-    let modalContainer = document.querySelector('#modal-container');
-    modalContainer.addEventListener('click', (e) => {
-    // Since this is also triggered when clicking INSIDE the modal
-    // We only want to close if the user clicks directly on the overlay
-    let target = e.target;
-    if (target === modalContainer) {
-        hideModal();
-    }
-    });
-
     //IIFE function returns
     return {
         add: add,
@@ -145,9 +100,6 @@ let pokemonRepository = (function () {
         showDetails: showDetails,
         loadList: loadList,
         loadDetails: loadDetails,
-        showLoadingMessage: showLoadingMessage,
-        hideLoadingMessage, hideLoadingMessage,
-        hideModal: hideModal,
     };
 
 }) ();
