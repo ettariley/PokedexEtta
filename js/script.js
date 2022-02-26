@@ -123,6 +123,10 @@ let pokemonRepository = (function () {
       })
   }
 
+  function lowerHomePage() {
+      let homePage = $('.home-page-body');
+      homePage.toggleClass('nav-open');
+  }
 
   //IIFE function returns
   return {
@@ -133,6 +137,7 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     searchPokemon: searchPokemon,
+    lowerHomePage: lowerHomePage
   };
 })();
 
