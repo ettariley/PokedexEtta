@@ -112,6 +112,16 @@ let pokemonRepository = (function () {
       });
   }
 
+  function searchPokemon(searchInput) {
+      //Clear list before search
+      $('.pokemon-list').empty();
+      //Add pokemon buttons that fit search parameters
+      pokemonList.forEach((pokemon) => {
+          if (pokemon.name.toLowerCase().includes(searchInput.toLowerCase())){
+              addListItem(pokemon);
+          }
+      })
+  }
 
 
   //IIFE function returns
@@ -122,6 +132,7 @@ let pokemonRepository = (function () {
     showDetails: showDetails,
     loadList: loadList,
     loadDetails: loadDetails,
+    searchPokemon: searchPokemon,
   };
 })();
 
