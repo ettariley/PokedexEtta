@@ -22,8 +22,7 @@
             <ul class="navbar-nav mr-auto"></ul>
             <!-- Search bar in nav bar -->
             <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" id="search-pokemon" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+              <input class="form-control mr-sm-2" id="search-pokemon" type="search" placeholder="Search Pokemon" aria-label="Search Pokemon" onkeyup="pokemonRepository.searchPokemon(this.value)">
             </form>
           </div>
         </nav>
