@@ -2,7 +2,7 @@
   "name": "pokedexetta",
   "version": "1.0.0",
   "description": "This project allows you to view the name, height, and picture of the first 150 pokemon. You can search for a pokemon by name.\r External API used: [Pokeapi](https://pokeapi.co/api/v2/pokemon/?limit=150)\r Languages used: HTML, CSS, JS\r Libraries used: Bootstrap, jQuery\r Other helpful things: Polyfills, ESLint, Prettier",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
