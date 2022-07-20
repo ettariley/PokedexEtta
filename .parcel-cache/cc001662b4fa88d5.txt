@@ -1,0 +1,25 @@
+24
+60C:\Users\Etta\Desktop\PokedexEtta\dist\index.43f8b255.js.map133027547501778066 0
+43C:\Users\Etta\Desktop\PokedexEtta\.eslintrc132920384286388479 0
+37C:\Users\Etta\Desktop\PokedexEtta\css132890150903810641 1
+36C:\Users\Etta\Desktop\PokedexEtta\js132901470205461412 1
+61C:\Users\Etta\Desktop\PokedexEtta\dist\index.ab327828.css.map133027547501778066 0
+46C:\Users\Etta\Desktop\PokedexEtta\package.json133027540741075993 0
+38C:\Users\Etta\Desktop\PokedexEtta\dist133027547501808001 1
+41C:\Users\Etta\Desktop\PokedexEtta\dist\js132903913826369130 1
+56C:\Users\Etta\Desktop\PokedexEtta\js\promise-polyfill.js132897744668533810 0
+44C:\Users\Etta\Desktop\PokedexEtta\index.html132903919805566267 0
+43C:\Users\Etta\Desktop\PokedexEtta\README.md132903930688289910 0
+54C:\Users\Etta\Desktop\PokedexEtta\js\fetch-polyfill.js132897746707426765 0
+46C:\Users\Etta\Desktop\PokedexEtta\js\script.js132920384062533530 0
+42C:\Users\Etta\Desktop\PokedexEtta\dist\css132903913695038089 1
+56C:\Users\Etta\Desktop\PokedexEtta\dist\index.43f8b255.js133027547501657947 0
+55C:\Users\Etta\Desktop\PokedexEtta\dist\js\script.min.js132903919201473601 0
+56C:\Users\Etta\Desktop\PokedexEtta\dist\index.79b9fdad.js133027547501657947 0
+60C:\Users\Etta\Desktop\PokedexEtta\dist\index.79b9fdad.js.map133027547501778066 0
+57C:\Users\Etta\Desktop\PokedexEtta\dist\index.ab327828.css133027547501657947 0
+56C:\Users\Etta\Desktop\PokedexEtta\dist\index.ff9404b7.js133027547501657947 0
+60C:\Users\Etta\Desktop\PokedexEtta\dist\index.ff9404b7.js.map133027547501778066 0
+49C:\Users\Etta\Desktop\PokedexEtta\dist\index.html133027547501657947 0
+57C:\Users\Etta\Desktop\PokedexEtta\dist\css\styles.min.css132903919470689807 0
+48C:\Users\Etta\Desktop\PokedexEtta\css\styles.css132903910135679088 0
